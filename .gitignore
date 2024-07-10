@@ -1,0 +1,44 @@
+# This .gitignore file should be placed at the root of your Unity project directory
+
+# Get latest from httpsgithub.comgithubgitignoreblobmasterUnity.gitignore
+
+# Uncomment this line if you wish to ignore the asset store tools plugin
+
+.vs
+
+.gradle
+# Windows image file caches
+
+Thumbs.db
+
+ehthumbs.db
+
+
+
+# Folder config file
+
+Desktop.ini
+
+
+
+# Recycle Bin used on file shares
+
+$RECYCLE.BIN/
+
+
+
+# Windows Installer files
+
+*.cab
+
+*.msi
+
+*.msm
+
+*.msp
+
+
+
+# Windows shortcuts
+
+*.lnk
