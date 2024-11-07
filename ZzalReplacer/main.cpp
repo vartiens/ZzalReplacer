@@ -25,8 +25,9 @@ void downloadCurl()
 	}
 }
 #else
-void downloadUrlmon()
+int downloadUrlmon()
 {
+	int fail = 0;
 	for (int i = 0; i < stems.size(); i++)
 	{
 		string name = stems[i] + exts[i];
@@ -34,7 +35,10 @@ void downloadUrlmon()
 		HRESULT hr = URLDownloadToFileA(nullptr, url.c_str(), name.c_str(), BINDF_GETNEWESTVERSION, nullptr);
 		
 		if (hr != S_OK) // Failure
+		{
 			cout << "Failed to download " << name << endl;
+			fail++;
+		}
 		else // Success
 		{
 			cout << "(" << i + 1 << "/" << stems.size() << ") " << name << endl;
@@ -48,6 +52,8 @@ void downloadUrlmon()
 			}
 		}
 	}
+
+	return fail;
 }
 #endif
 
@@ -88,9 +94,10 @@ int main()
 #if !DOWNLOAD_MODE
 	downloadCurl();
 #else
-	downloadUrlmon();
+	int fails = downloadUrlmon();
+	cout << stems.size() << " images total, " << fails << " failed downloads" << endl;
 #endif
 
-	system("pause");
+	system("pause >> nul");
 	return 0;
 }
